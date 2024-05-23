@@ -10,7 +10,7 @@ cs2 external cheats | cs2外置外挂
 
 ![image-20240519164544704](./README.assets/image-20240519164544704.png)
 
-本项目含有少量BUG，今后或许不会更新，并且本说明文档不包括代码中写有的所有功能说明
+本项目含有微量BUG，今后或许不会更新，并且本说明文档不包括代码中写有的所有功能说明
 
 ExtCheats是一个业余爱好项目，其本质如此也应该被如此看待。同时对电子游戏作弊行为持强烈的反对态度。如果您使用ExtCheats进行作弊，您不仅会破坏游戏的公平性和乐趣，还会损害您自己的信誉和尊严。
 
@@ -28,11 +28,15 @@ ExtCheats是一个业余爱好项目，其本质如此也应该被如此看待�
 
 **CS2的开源作弊，使用C++编写**
 
-![image-20240519165304344](./README.assets/image-20240519165304344.png)
+![image-20240523094055200](./README.assets/image-20240523094055200.png)
 
 该外挂会导致VAC，并且该外挂使用外置方式进行作弊，因此不推荐用于**HvH**比赛，为了您的账号安全，请在开启游戏时加上`-insecure`选项
 
 ![image-20240519162215594](./README.assets/image-20240519162215594.png)
+
+# 更新
+
+**2024-5-23**：优化菜单，新增人物发光、避免闪光弹功能
 
 # 使用
 
@@ -51,6 +55,14 @@ ExtCheats是一个业余爱好项目，其本质如此也应该被如此看待�
 - 透视
 
   ![esp](./README.assets/esp.gif)
+
+- 5-23：人物发光
+
+  ![glow](./README.assets/glow.gif)
+
+- 5-23：免疫闪光弹
+
+  ![flash](./README.assets/flash.gif)
 
 - 自动扳机(triggerbot，适用于预瞄)
 
@@ -71,6 +83,9 @@ ExtCheats是一个业余爱好项目，其本质如此也应该被如此看待�
   ![norecoil](./README.assets/norecoil.gif)
 
 # 更多
+
+部分技术细节会放在下面的公众号发出
+
 或许我们的微信公众号< **不止Sec** >会有你更多感兴趣的内容
 
 ![qrcode_for_gh_36eb51c71ac6_1280](./README.assets/qrcode_for_gh_36eb51c71ac6_1280.jpg)
