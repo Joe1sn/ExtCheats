@@ -12,7 +12,7 @@ cs2 external cheats | cs2外置外挂
 
 ExtCheats是一个业余爱好项目，作者只是用它来熟悉C++20，本外挂没有任何使用注入、hook等技术，所以功能性十分的不足。由于项目的性质是为了编程，所以今后不会考虑内置版本。
 
-不过在测试DLL注入，发现自己的项目https://github.com/Joe1sn/S-inject居然还挺好用
+不过在测试DLL注入，发现自己的项目 https://github.com/Joe1sn/S-inject 居然还挺好用
 
 <details> 
 <summary>用前必读</summary> 
