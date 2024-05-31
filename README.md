@@ -1,6 +1,6 @@
-cs2 external cheats | cs2外置外挂
+![](https://img.shields.io/badge/joe1sn-ExtCheats-green)  ![](https://img.shields.io/badge/windows-C++-yellow)
 
-不可抗力不在放出
+业余制做，严禁售卖！
 
 # ExtCheats
 
@@ -10,7 +10,9 @@ cs2 external cheats | cs2外置外挂
 
 本项目含有微量BUG，今后或许不会更新，并且本说明文档不包括代码中写有的所有功能说明
 
-ExtCheats是一个业余爱好项目，其本质如此也应该被如此看待。同时对电子游戏作弊行为持强烈的反对态度。如果您使用ExtCheats进行作弊，您不仅会破坏游戏的公平性和乐趣，还会损害您自己的信誉和尊严。
+ExtCheats是一个业余爱好项目，作者只是用它来熟悉C++20，本外挂没有任何使用注入、hook等技术，所以功能性十分的不足。由于项目的性质是为了编程，所以今后不会考虑内置版本。
+
+不过在测试DLL注入，发现自己的项目https://github.com/Joe1sn/S-inject居然还挺好用
 
 <details> 
 <summary>用前必读</summary> 
@@ -31,6 +33,8 @@ ExtCheats是一个业余爱好项目，其本质如此也应该被如此看待�
 该外挂会导致VAC，并且该外挂使用外置方式进行作弊，因此不推荐用于**HvH**比赛，为了您的账号安全，请在开启游戏时加上`-insecure`选项
 
 ![image-20240519162215594](./README.assets/image-20240519162215594.png)
+
+代码偏移使用：https://github.com/a2x/cs2-dumper
 
 # 更新
 
@@ -54,15 +58,15 @@ ExtCheats是一个业余爱好项目，其本质如此也应该被如此看待�
 
   ![esp](./README.assets/esp.gif)
 
-- 5-23：人物发光
+- 5-23：人物发光（高风险功能）
 
   ![glow](./README.assets/glow.gif)
 
-- 5-23：免疫闪光弹
+- 5-23：免疫闪光弹（中风险功能）
 
   ![flash](./README.assets/flash.gif)
 
-- 自动扳机(triggerbot，适用于预瞄)
+- 自动扳机(triggerbot，适用于预瞄，（高风险功能）)
 
   长按`E`在激活功能的时候自动开火，此限制在于避免瞄准队友
 
@@ -72,7 +76,7 @@ ExtCheats是一个业余爱好项目，其本质如此也应该被如此看待�
 
   ![aimbot](./README.assets/aimbot.gif)
 
-- 连跳
+- 连跳（中风险功能）
 
   ![bhop](./README.assets/bhop.gif)
 
