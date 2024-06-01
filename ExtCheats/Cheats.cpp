@@ -129,6 +129,16 @@ std::wstring charTowstring(char str[]) {
 	return strRet;
 }
 
+std::string unionToWide(char16_t number) {
+	//char16_t unicode16 = 0xE001;
+
+	// 将16位Unicode编码转换为宽字符串
+	std::u16string u16str(1, number);
+
+	std::wstring_convert<std::codecvt_utf8_utf16<char16_t>, char16_t> convert;
+	std::string u8str = convert.to_bytes(u16str);
+	return u8str;
+}
 /// <summary>
 /// 获得玩家昵称
 /// </summary>
@@ -286,6 +296,11 @@ void Player::update()
 	this->Bones[14] = this->Bones[10] - Vector{ 0.0f,0.0f,8.0f };	//top
 	this->Bones[15] = this->Bones[12] - Vector{ 0.0f,0.0f,8.0f };	//top
 
+	this->Weapon = (DWORD)GetProcessMem(this->hProcess,
+		this->PlayerPawnAddr, 2,
+		CSPlayerPawn::m_pClippingWeapon,
+		C_AttributeContainer::m_Item + C_EconEntity::m_AttributeManager + C_EconItemView::m_iItemDefinitionIndex
+	);
 }
 
 void Player::DrawBones(Matrix matrix, ImVec4 rgb, float size) {
@@ -352,7 +367,10 @@ void Player::DrawBox(Matrix matrix, BoxColor colors, BoxSize sizes) {
 	if (!start.PosCorrect() || !end.PosCorrect())
 		return;
 
-	Render::ImDrawText(this->name.c_str(), Pos{ end.x, start.y }, colors.Name, sizes.szName);
+	//Render::ImDrawWeapon(unionToWide(this->Weapon + 0xE000).c_str(), Pos{ end.x + 10, start.y }, ImVec4{ 255,255,255,0 });
+	//Render::ImDrawWeapon(unionToWide(this->Weapon + 0xE000).c_str(), Pos{ end.x + 10, start.y }, ImVec4(255, 255, 255, 255));
+	//Render::ImDrawText(this->name.c_str(), Pos{ end.x, start.y + sizes.szName }, colors.Name, sizes.szName);
+	Render::ImDrawText(this->name.c_str(), Pos{ end.x, start.y}, colors.Name, sizes.szName);
 	//DrawText()
 	Render::DrawRect(start, end, colors.Box, sizes.szBox);
 	height = float(abs(start.y - end.y));

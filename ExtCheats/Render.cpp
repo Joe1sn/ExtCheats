@@ -75,11 +75,21 @@ void Render::DrawCircle(Pos pos_start, float radius, ImVec4 color, float thickne
 
 void Render::ImDrawText(const char text[], Pos pos_start, ImVec4 color, float thickness) {
 	ImGuiIO& io = ImGui::GetIO(); (void)io;
-	//ImFont* font = io.Fonts->AddFontFromFileTTF(CheatSheet::ttfPath, CheatSheet::fontSize, NULL, io.Fonts->GetGlyphRangesDefault());
-	//ImFont* font = io.Fonts->AddFontFromFileTTF(CheatSheet::ttfPath, thickness, NULL, io.Fonts->GetGlyphRangesChineseFull());
-	ImFont* font = io.Fonts->AddFontFromFileTTF(NULL, CheatSheet::NameSize, NULL, io.Fonts->GetGlyphRangesChineseFull());
 	ImGui::GetBackgroundDrawList()->AddText(
 		//ImVec2(int(pos_start.x), int(pos_start.y)), Color(color), text, 0
-		font, CheatSheet::fontSize, ImVec2(int(pos_start.x), int(pos_start.y)), Color(color), text
+		io.Fonts->Fonts[0], CheatSheet::fontSize, ImVec2(int(pos_start.x), int(pos_start.y)), Color(color), text
 	);
+}
+
+void Render::ImDrawWeapon(const char text[], Pos pos_start, ImVec4 color) {
+	ImGuiIO& io = ImGui::GetIO(); (void)io;
+	//draw_list->PushTextureID(font->ContainerAtlas->TexID);
+	//ImGui::GetBackgroundDrawList()->PushTextureID(io.Fonts->Fonts[1]->ContainerAtlas->TexID);
+	ImGui::GetBackgroundDrawList()->AddText(
+		io.Fonts->Fonts[1], CheatSheet::IconSize, ImVec2(int(pos_start.x), int(pos_start.y)), Color(color), text
+	);
+	ImGui::GetBackgroundDrawList()->AddText(
+		io.Fonts->Fonts[2], CheatSheet::IconSize, ImVec2(int(pos_start.x), int(pos_start.y)), Color(color), text
+	);
+	//ImGui::GetBackgroundDrawList()->PopTextureID();
 }

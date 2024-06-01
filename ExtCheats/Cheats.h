@@ -40,6 +40,8 @@ DWORD64 GetProcessMem(HANDLE hProcess, DWORD64 dwBase, int depth, ...);
 
 std::wstring charTowstring(char str[]);
 
+std::string unionToWide(char16_t number);
+
 /// <summary>
 /// 获得玩家昵称
 /// </summary>
@@ -91,6 +93,7 @@ public:
 	DWORD Amor;
 	std::string name;
 	DWORD Spotted;
+	DWORD Weapon;
 
 	Vector Coord;		//坐标
 	Vector Bones[16];	//骨骼

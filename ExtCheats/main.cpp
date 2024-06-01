@@ -44,16 +44,16 @@ bool cheat_menu_show = true;
 bool esp = true;
 bool show_bone = false;
 bool show_rect = true;
-bool glowing = true;
+bool glowing = false;
 
-bool bhop = true;
+bool bhop = false;
 bool triggerbot = false;
 bool simaimbot = false;
 bool aimbot = false;
 bool norecolio = false;
 bool showfriend = false;
 bool shotfriend = false;
-bool antiflash = true;
+bool antiflash = false;
 
 ImVec4 Vec4EnemyBone = ImVec4(255, 0, 0, 255);
 ImVec4 Vec4FriendBone = ImVec4(0, 255, 0, 255);
@@ -64,7 +64,7 @@ ImVec4 Vec4NameColr = ImVec4(255, 255, 0, 255);
 
 float ImBoneSize = 1;
 float ImRectSize = 1;
-float ImBoxSize = 3.5;
+float ImBoxSize = 2;
 float ImHPSize = 2;
 float ImAmorSize = 2;
 float ImfontSize = 18;
@@ -189,9 +189,23 @@ int __stdcall WinMain(HINSTANCE instance, HINSTANCE pInstance, LPSTR lpCmd, int 
 
 	ImGui::CreateContext();
 	ImGuiIO& io = ImGui::GetIO(); (void)io;
-	io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;     // Enable Keyboard Controls
-	io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
-	ImFont* font = io.Fonts->AddFontFromFileTTF(CheatSheet::ttfPath, CheatSheet::fontSize, nullptr, io.Fonts->GetGlyphRangesChineseFull());
+	//ImFont* font = io.Fonts->AddFontFromFileTTF(CheatSheet::iconPath, CheatSheet::fontSize, nullptr, io.Fonts->GetGlyphRangesChineseFull());
+	//io.Fonts->Build();
+	//io.Fonts->AddFontDefault(); // 添加默认字体
+
+	io.Fonts->AddFontFromFileTTF(CheatSheet::ttfPath, CheatSheet::fontSize, nullptr, io.Fonts->GetGlyphRangesChineseFull());
+	static const ImWchar custom_ranges[] = { 0xE001, 0xE204, 0 };
+		
+	io.Fonts->AddFontFromFileTTF(CheatSheet::iconPathA, CheatSheet::IconSize, nullptr, custom_ranges); // 添加自定义字体2
+	io.Fonts->AddFontFromFileTTF(CheatSheet::iconPathB, CheatSheet::IconSize,nullptr, custom_ranges); // 添加自定义字体2
+
+	// 构建字体纹理
+	unsigned char* tex_pixels = NULL;
+	int tex_width, tex_height;
+	io.Fonts->GetTexDataAsRGBA32(&tex_pixels, &tex_width, &tex_height);
+
+
+
 	ImGui::StyleColorsDark();
 
 	ImGui_ImplWin32_Init(hwnd);
@@ -287,7 +301,7 @@ int __stdcall WinMain(HINSTANCE instance, HINSTANCE pInstance, LPSTR lpCmd, int 
 
 				ImBoneSize = 1;
 				ImRectSize = 1;
-				ImBoxSize = 3.5;
+				ImBoxSize = 2;
 				ImHPSize = 2;
 				ImAmorSize = 2;
 				ImfontSize = 18;
@@ -454,6 +468,14 @@ void Drawer() {
 			continue;
 		if (!showfriend && players[i].team == selfplayer.team)
 			continue;
+		//if (
+		//(
+		//	pow((selfplayer.Coord.x - players[i].Coord.x), 2) + 
+		//	pow((selfplayer.Coord.y - players[i].Coord.y), 2) + 
+		//	pow((selfplayer.Coord.z - players[i].Coord.z), 2)
+		//) > 8000000
+		//	)
+		//	continue;
 		coord_cord = WorldToScreen(selfplayer.matrix, players[i].Coord, posName);
 
 		if (coord_cord < 0.01f)

@@ -15,4 +15,5 @@ namespace Render {
 	void DrawLine(Pos pos_start, Pos pos_end, ImVec4 color, float thickness);
 	void DrawCircle(Pos pos_start, float radius, ImVec4 color, float thickness);
 	void ImDrawText(const char text[], Pos pos_start, ImVec4 color, float thickness);
+	void ImDrawWeapon(const char text[], Pos pos_start, ImVec4 color);
 }
