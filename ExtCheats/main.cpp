@@ -194,10 +194,12 @@ int __stdcall WinMain(HINSTANCE instance, HINSTANCE pInstance, LPSTR lpCmd, int 
 	//io.Fonts->AddFontDefault(); // 添加默认字体
 
 	io.Fonts->AddFontFromFileTTF(CheatSheet::ttfPath, CheatSheet::fontSize, nullptr, io.Fonts->GetGlyphRangesChineseFull());
-	static const ImWchar custom_ranges[] = { 0xE001, 0xE204, 0 };
+	static const ImWchar custom_rangesA[] = { 0xE001, 0xE204, 0 };
+	static const ImWchar custom_rangesB[] = { 0x30, 0x78, 0 };
 		
-	io.Fonts->AddFontFromFileTTF(CheatSheet::iconPathA, CheatSheet::IconSize, nullptr, custom_ranges); // 添加自定义字体2
-	io.Fonts->AddFontFromFileTTF(CheatSheet::iconPathB, CheatSheet::IconSize,nullptr, custom_ranges); // 添加自定义字体2
+	io.Fonts->AddFontFromFileTTF(CheatSheet::iconPathA, CheatSheet::IconSize, nullptr, custom_rangesA); // 添加自定义字体2
+	io.Fonts->AddFontFromFileTTF(CheatSheet::iconPathB, CheatSheet::IconSize, nullptr, custom_rangesA); // 添加自定义字体2
+	io.Fonts->AddFontFromFileTTF(CheatSheet::iconPathC, CheatSheet::IconSize,nullptr, custom_rangesB); // 添加自定义字体2
 
 	// 构建字体纹理
 	unsigned char* tex_pixels = NULL;

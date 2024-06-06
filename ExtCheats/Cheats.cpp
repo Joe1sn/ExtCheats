@@ -368,7 +368,8 @@ void Player::DrawBox(Matrix matrix, BoxColor colors, BoxSize sizes) {
 		return;
 
 	//Render::ImDrawWeapon(unionToWide(this->Weapon + 0xE000).c_str(), Pos{ end.x + 10, start.y }, ImVec4{ 255,255,255,0 });
-	//Render::ImDrawWeapon(unionToWide(this->Weapon + 0xE000).c_str(), Pos{ end.x + 10, start.y }, ImVec4(255, 255, 255, 255));
+	//Render::ImDrawWeapon(unionToWide(this->Weapon + 0xE000).c_str(), Pos{ end.x + 10, start.y + sizes.szName }, ImVec4(255, 255, 255, 255));
+	Render::ImDrawWeapon(unionToWide(WeaponTable::weapon_icon_table[this->Weapon]).c_str(), Pos{end.x + 10, start.y + sizes.szName}, ImVec4(255, 255, 255, 255));
 	//Render::ImDrawText(this->name.c_str(), Pos{ end.x, start.y + sizes.szName }, colors.Name, sizes.szName);
 	Render::ImDrawText(this->name.c_str(), Pos{ end.x, start.y}, colors.Name, sizes.szName);
 	//DrawText()

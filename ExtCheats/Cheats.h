@@ -94,6 +94,7 @@ public:
 	std::string name;
 	DWORD Spotted;
 	DWORD Weapon;
+	std::string weaponName;
 
 	Vector Coord;		//×ø±ê
 	Vector Bones[16];	//¹Ç÷À
